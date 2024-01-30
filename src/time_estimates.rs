@@ -94,27 +94,35 @@ impl fmt::Display for CrackTimeSeconds {
         const YEAR: u64 = MONTH * 12;
         const CENTURY: u64 = YEAR * 100;
         if seconds < 1 {
-            write!(f, "less than a second")
+            // write!(f, "less than a second")
+            write!(f, "小于 1 秒")
         } else if seconds < MINUTE {
             let base = seconds;
-            write!(f, "{} second{}", base, if base > 1 { "s" } else { "" })
+            // write!(f, "{} second{}", base, if base > 1 { "s" } else { "" })
+            write!(f, "{} 秒", base)
         } else if seconds < HOUR {
             let base = seconds / MINUTE;
-            write!(f, "{} minute{}", base, if base > 1 { "s" } else { "" })
+            // write!(f, "{} minute{}", base, if base > 1 { "s" } else { "" })
+            write!(f, "{} 分", base)
         } else if seconds < DAY {
             let base = seconds / HOUR;
-            write!(f, "{} hour{}", base, if base > 1 { "s" } else { "" })
+            // write!(f, "{} hour{}", base, if base > 1 { "s" } else { "" })
+            write!(f, "{} 小时", base)
         } else if seconds < MONTH {
             let base = seconds / DAY;
-            write!(f, "{} day{}", base, if base > 1 { "s" } else { "" })
+            // write!(f, "{} day{}", base, if base > 1 { "s" } else { "" })
+            write!(f, "{} 天", base)
         } else if seconds < YEAR {
             let base = seconds / MONTH;
-            write!(f, "{} month{}", base, if base > 1 { "s" } else { "" })
+            // write!(f, "{} month{}", base, if base > 1 { "s" } else { "" })
+            write!(f, "{} 月", base)
         } else if seconds < CENTURY {
             let base = seconds / YEAR;
-            write!(f, "{} year{}", base, if base > 1 { "s" } else { "" })
+            // write!(f, "{} year{}", base, if base > 1 { "s" } else { "" })
+            write!(f, "{} 年", base)
         } else {
-            write!(f, "centuries")
+            // write!(f, "centuries")
+            write!(f, "世纪")
         }
     }
 }
